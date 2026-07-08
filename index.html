@@ -233,6 +233,28 @@ tbody td{padding:12px 10px;vertical-align:middle}
   .tw .ov-tbl{min-width:960px}
   .tw .da-tbl{min-width:1100px}
 }
+.mob-scores-row{display:none}
+@media(max-width:700px){
+  /* Overview table: collapse category columns into stacked bars */
+  .tw .ov-tbl{min-width:0;table-layout:auto}
+  .ov-tbl thead th:nth-child(2){width:auto}
+  .ov-tbl .th-sort:not([data-col="o"]),
+  .ov-tbl td.sc-cat{display:none}
+  .ov-tbl tbody tr.tr-anim{border-bottom:none}
+  .mob-scores-row{display:table-row}
+  .mob-scores-row td{padding:0 10px 14px;border-bottom:1px solid var(--bord2)}
+  .mob-scores{display:flex;flex-direction:column;gap:6px}
+  .mob-sc-row{display:flex;align-items:center;gap:8px}
+  .mob-sc-label{flex:0 0 90px;font-size:10.5px;color:var(--mut);font-weight:600}
+  .mob-sc-track{flex:1;height:6px;background:var(--bord2);border-radius:3px;overflow:hidden}
+  .mob-sc-fill{height:100%;border-radius:3px}
+  .mob-sc-val{flex:0 0 28px;text-align:right;font-size:11.5px;font-weight:700}
+
+  .ov-tbl .eye-btn{background:none;padding:2px;border-radius:0}
+  .ov-tbl .eye-label{display:none}
+  .ov-tbl .eye-btn i{font-size:19px}
+  .ov-tbl td.td-eye{padding:8px 0 8px 6px!important;text-align:right}
+}
 @media(max-width:640px){
   .beh-hdr,.beh-row{grid-template-columns:1fr 40px 46px 40px 30px;gap:6px;padding:8px 6px}
   .beh-m{font-size:12px}
@@ -652,14 +674,18 @@ function renderOvTable(col, asc){
 <tr class="tr-anim" style="animation-delay:${(i*0.018).toFixed(3)}s">
 <td class="rn">${i+1}</td>
 <td class="bn">${LOGOS[b.n]?`<span data-tip="${b.n}"><img class="${SMALL_LOGOS.has(b.n)?'brand-logo-sm':'brand-logo'}" src="${LOGOS[b.n]}" alt="${b.n}"></span>`:`<span>${b.n}</span>`}</td>
-<td class="sc">${badge(b.o)}</td>
-<td class="sc">${badge(b.a)}</td>
-<td class="sc">${badge(b.p)}</td>
-<td class="sc">${badge(b.s)}</td>
-<td class="sc">${badge(b.u)}</td>
-<td class="sc">${badge(b.w)}</td>
-<td class="td-eye"><button class="eye-btn" onclick="openBrandModal('${b.n.replace(/'/g,"\\'")}',${i+1})" data-tip="View ${b.n} details"><i class="ph ph-eye"></i>View</button></td>
-</tr>`).join('')
+<td class="sc sc-o">${badge(b.o)}</td>
+<td class="sc sc-cat">${badge(b.a)}</td>
+<td class="sc sc-cat">${badge(b.p)}</td>
+<td class="sc sc-cat">${badge(b.s)}</td>
+<td class="sc sc-cat">${badge(b.u)}</td>
+<td class="sc sc-cat">${badge(b.w)}</td>
+<td class="td-eye"><button class="eye-btn" onclick="openBrandModal('${b.n.replace(/'/g,"\\'")}',${i+1})" data-tip="View ${b.n} details"><i class="ph ph-eye"></i><span class="eye-label">View</span></button></td>
+</tr>
+<tr class="mob-scores-row"><td colspan="9"><div class="mob-scores">
+${[['Accessibility',b.a],['Performance',b.p],['Style',b.s],['Usability',b.u],['Web standards',b.w]].map(([l,v])=>`
+<div class="mob-sc-row"><span class="mob-sc-label">${l}</span><div class="mob-sc-track"><div class="mob-sc-fill" style="width:${(v*10).toFixed(0)}%;background:${bc(v)}"></div></div><span class="mob-sc-val" style="color:${bc(v)}">${v.toFixed(1)}</span></div>`).join('')}
+</div></td></tr>`).join('')
 }
 
 // ============================================================
