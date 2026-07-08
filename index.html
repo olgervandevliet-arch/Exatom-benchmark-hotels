@@ -214,18 +214,17 @@ tbody td{padding:12px 10px;vertical-align:middle}
 /* ============================================================
    MOBILE RESPONSIVE OVERRIDES
    ============================================================ */
+.mob-cta-row{display:none}
 @media(max-width:700px){
   .hdr{flex-wrap:wrap;height:auto;padding:14px 16px 0;row-gap:12px}
   .hdr-brand{flex:1 1 auto;min-width:0}
   .hdr-sub{max-width:none}
   .hdr-div{display:none}
-  .hdr-nav{order:3;flex:1 1 100%;height:auto;border-top:1px solid var(--bord2);margin:0 -16px;padding:0 16px}
+  .hdr-nav{order:2;flex:1 1 100%;height:auto;border-top:1px solid var(--bord2);margin:0 -16px;padding:0 16px}
   .ntab{height:48px}
-  .hdr-ctas{order:2;flex:1 1 100%;justify-content:flex-end;padding-bottom:10px}
-}
-@media(max-width:420px){
-  .hdr-ctas{justify-content:stretch}
-  .hdr-ctas .cta,.hdr-ctas .cta-outline{flex:1;justify-content:center;padding:9px 8px;font-size:12.5px}
+  .hdr-ctas{display:none}
+  .mob-cta-row{display:flex;flex-direction:column;gap:10px;margin:4px 0 20px;max-width:340px}
+  .mob-cta-row .cta,.mob-cta-row .cta-outline{width:100%;justify-content:center}
 }
 @media(max-width:900px){
   .tw{-webkit-overflow-scrolling:touch}
@@ -316,6 +315,10 @@ tbody td{padding:12px 10px;vertical-align:middle}
 <div class="body">
   <h1 class="sec-title">Form score</h1>
   <p class="sec-intro">Technical UX audit of guest-details / checkout forms across 8 scoreable hotel groups of the world's ten largest, measured with the Exatom form-audit engine (ExatomScore). Scores run 0&ndash;10, higher is better. Weighted across five categories. Wyndham and Hyatt could not be auto-scored for technical reasons &ndash; see Design analysis &ndash; and are excluded from the ranking below.</p>
+  <div class="mob-cta-row">
+    <a class="cta-outline" href="https://calendly.com/exatom/30min?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Deep-dive your form</a>
+    <a class="cta" href="https://score.exatom.io?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Get your form score</a>
+  </div>
 
   <div class="card">
     <div class="tw">
@@ -465,6 +468,10 @@ tbody td{padding:12px 10px;vertical-align:middle}
 <div class="body">
   <h1 class="sec-title">Design analysis</h1>
   <p class="sec-intro">Structural audit of guest-details / checkout forms across all 10 assessed hotel groups. Every brand is multi-step at the funnel level (four to six screens to reach guest details); at the form level nearly every brand consolidates guest information and payment onto one final page &ndash; Accor is the mild exception, separating details from payment. Field counts range from 11 (Choice Hotels) to 16 (Best Western), averaging 13 across the eight scored forms.</p>
+  <div class="mob-cta-row">
+    <a class="cta-outline" href="https://calendly.com/exatom/30min?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Deep-dive your form</a>
+    <a class="cta" href="https://score.exatom.io?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Get your form score</a>
+  </div>
   <div class="bml"><div class="bml-ico"><i class="ph-bold ph-check"></i></div><span class="bml-txt">Form feature analysis &ndash; all brands</span></div>
   <div class="card">
     <div class="tw">
@@ -482,6 +489,10 @@ tbody td{padding:12px 10px;vertical-align:middle}
 <div class="body">
   <h1 class="sec-title">Score distribution</h1>
   <p class="sec-intro">Min / average / max spread of ExatomScore results across the eight benchmarked hotel groups, by category &ndash; higher is always better here. Followed by brand-by-brand notes on each form's key strength and primary risk, including the two brands that could not be auto-scored.</p>
+  <div class="mob-cta-row">
+    <a class="cta-outline" href="https://calendly.com/exatom/30min?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Deep-dive your form</a>
+    <a class="cta" href="https://score.exatom.io?utm_source=Hotel_Benchmark_Report&utm_medium=CTA_Button&utm_campaign=Hotel_Benchmark_Report" target="_blank" rel="noopener">Get your form score</a>
+  </div>
 <div class="bml"><div class="bml-ico"><i class="ph-bold ph-check"></i></div><span class="bml-txt">Score range by category</span></div>
   <div class="card">
     <div class="beh-hdr"><div>Category</div><div style="text-align:center">Min</div><div style="text-align:center">Average</div><div style="text-align:center">Max</div><div style="text-align:center">Direction</div></div>
